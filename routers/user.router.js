@@ -15,7 +15,7 @@ router.post(
                 rules: ["string"],
             },
             phone: {
-                rules: ["number"],
+                rules: ["string"],
             },
             email: {
                 rules: ["string"],
