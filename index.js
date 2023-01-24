@@ -1,11 +1,11 @@
-const express = require("express");
+const express = require('express');
 
 const app = express();
 app.use(express.json());
 
-require("./utils/db");
+require('./utils/db');
 
-app.use("/", require("./routers"));
+app.use('/', require('./routers'));
 
 app.use((error, _, res, __) => {
     res.status(error.status).json({

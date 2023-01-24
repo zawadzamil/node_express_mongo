@@ -1,12 +1,12 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
-mongoose.set("strictQuery", true);
+mongoose.set('strictQuery', true);
 mongoose
-    .connect("mongodb://127.0.0.1:27017/node", {
+    .connect('mongodb://127.0.0.1:27017/node', {
         useNewUrlParser: true,
         useUnifiedTopology: true,
     })
     .then(() => {
-        console.log("Connection Successful!");
+        console.log('Connection Successful!');
     })
     .catch((err) => console.log(err));
