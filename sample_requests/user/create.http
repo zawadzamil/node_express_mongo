@@ -1,0 +1,8 @@
+POST http://localhost:3004/v/1.0.0/users/create
+content-type: application/json
+
+{
+  "name": "John Doe",
+  "phone": "+1212121221",
+  "email": "jon@example.com"
+}

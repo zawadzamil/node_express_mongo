@@ -38,7 +38,10 @@ const update = async (req, res) => {
 };
 const remove = async (req, res) => {
     try {
-        await User.findByIdAndDelete(req.params.id);
+        const user = await User.findByIdAndDelete(req.params.id);
+
+        console.log(user);
+
         res.status(200).json({ success: true, message: "User Removed!" });
     } catch (error) {
         if (error.name === "CastError") {
