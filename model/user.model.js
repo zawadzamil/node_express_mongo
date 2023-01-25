@@ -13,9 +13,9 @@ const schema = mongoose.Schema({
         type: String,
         required: true,
     },
-    age: {
-        type: Number,
-        default: null,
+    password: {
+        type: String,
+        reuired: true,
     },
 });
 

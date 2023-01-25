@@ -2,6 +2,10 @@ const express = require('express');
 
 const app = express();
 app.use(express.json());
+const dotenv = require('dotenv');
+
+// get config vars
+dotenv.config();
 
 require('./utils/db');
 

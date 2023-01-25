@@ -1,62 +1,76 @@
-const express = require('express');
+const express = require("express");
 
 const router = express.Router();
-const { validate } = require('req-valida');
-const userHandler = require('../handler/user.handler');
+const { validate } = require("req-valida");
+const userHandler = require("../handler/user.handler");
 
-router.get('/id/:id', userHandler.get);
+router.get("/id/:id", userHandler.get);
 
-router.post(
-    '/create',
-
-    validate({
-        location: 'body',
-        data: {
-            name: {
-                rules: ['string'],
-            },
-            phone: {
-                rules: ['string'],
-            },
-            email: {
-                rules: ['string'],
-            },
-            age: {
-                rules: ['number'],
-                isOptional: true,
-            },
+router.post("/login",
+validate({
+    location:"body",
+    data:{
+        email:{
+            rules:["string"],
         },
-    }),
-    userHandler.post,
+        password:{
+            rules:["string"],
+        }
+    }
+}),
+userHandler.login
+
+);
+router.post(
+  "/create",
+
+  validate({
+    location: "body",
+    data: {
+      name: {
+        rules: ["string"],
+      },
+      phone: {
+        rules: ["string"],
+      },
+      email: {
+        rules: ["string"],
+      },
+      password: {
+        rules: ["string"],
+      },
+    },
+  }),
+  userHandler.post
 );
 router.put(
-    '/update/:id',
+  "/update/:id",
 
-    validate({
-        location: 'body',
-        data: {
-            name: {
-                rules: ['string'],
-                isOptional: true,
-            },
-            phone: {
-                rules: ['string'],
-                isOptional: true,
-            },
-            email: {
-                rules: ['string'],
-                isOptional: true,
-            },
-            age: {
-                rules: ['number'],
-                isOptional: true,
-            },
-        },
-    }),
-    userHandler.update,
+  validate({
+    location: "body",
+    data: {
+      name: {
+        rules: ["string"],
+        isOptional: true,
+      },
+      phone: {
+        rules: ["string"],
+        isOptional: true,
+      },
+      email: {
+        rules: ["string"],
+        isOptional: true,
+      },
+      age: {
+        rules: ["number"],
+        isOptional: true,
+      },
+    },
+  }),
+  userHandler.update
 );
-router.delete('/delete/:id', userHandler.remove);
+router.delete("/delete/:id", userHandler.remove);
 
-router.get('/all', userHandler.all);
+router.get("/all", userHandler.all);
 
 module.exports = router;
